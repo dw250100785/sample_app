@@ -1,0 +1,10 @@
+<div>
+  <a href="<%= following_user_path object %>">
+    Following: <%= object.followed_users.count %>
+  </a>
+</div>
+<div>
+  <a href="<%= follower_user_path object %>">
+    Follower:  <%= object.followers.count %>
+  </a>
+</div>

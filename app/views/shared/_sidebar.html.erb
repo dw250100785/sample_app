@@ -1,7 +1,10 @@
-<% @user %>
+<% @user ||= current_user %>
 
 <h2>User Info</h2>
 <%= render 'shared/user_info', object: @user %>
+
+<h2>Status</h2>
+<%= render 'shared/status', object: @user %>
 
 <% if yield(:title) == 'Home' %>
   <h2>Micropost Form</h2>

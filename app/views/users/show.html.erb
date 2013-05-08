@@ -2,4 +2,9 @@
 <h1><%= @user.name %></h1>
 
 <%= render 'shared/sidebar' %>
+
+<% if signed_in? and !current_user?(@user) %>
+  <%= render 'show_follow', object: @user %>
+<% end %>
+
 <%= render 'shared/collection', object: @microposts %>

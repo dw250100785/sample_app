@@ -6,4 +6,8 @@
   <% if current_user.admin? and !current_user?(user) %>
     <=> <%= link_to 'delete', user, method: :delete, confirm: 'DELETE USER?' %>
   <% end %>
+
+  <% if signed_in? and !current_user?(user) %>
+    <%= render 'show_follow', object: user %>
+  <% end %>
 </li>
