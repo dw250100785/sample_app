@@ -2,7 +2,10 @@ SampleApp::Application.routes.draw do
   root to: 'home_pages#home'
   
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
+  match '/signin' => 'sessions#new'
+  match '/signout' => 'sessions#destroy', via: :delete
   match '/signup' => 'users#new'
   
   # The priority is based upon order of creation:
