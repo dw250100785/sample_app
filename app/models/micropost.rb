@@ -8,6 +8,7 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true
 
   def self.from_users_followed_by(user)
-    user.microposts
+    others = "SELECT followed_id FROM relationships WHERE follower_id = :me"
+    where "user_id IN (#{others}) OR user_id = :me", me: user.id
   end
 end
