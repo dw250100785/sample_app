@@ -1,0 +1,7 @@
+<%= form_for object do |f| %>
+  <%= render 'shared/error_messages', object: object %>
+
+  <%= f.text_area :content %>
+
+  <%= f.submit 'Post' %>
+<% end %>

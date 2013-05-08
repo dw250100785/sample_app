@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @microposts = @user.microposts.paginate page: params[:page], per_page: 15
   end
 
   def new
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new params[:user]
     if @user.save
+      sign_in @user
       flash[:sucess] = "welcome to SAMPLE APP"
       redirect_to @user
     else

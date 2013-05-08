@@ -2,3 +2,8 @@
 
 <h2>User Info</h2>
 <%= render 'shared/user_info', object: @user %>
+
+<% if yield(:title) == 'Home' %>
+  <h2>Micropost Form</h2>
+  <%= render 'shared/micropost_form', object: @micropost %>
+<% end %>

@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def feed
+    Micropost.from_users_followed_by(self)
+  end
+  
   private
 
   def create_remember_token

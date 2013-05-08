@@ -1,0 +1,11 @@
+<li>
+  <%= link_to micropost.user.name, micropost.user %>
+  <=>
+  <%= micropost.content %>
+  <=>
+  <%= micropost.created_at %>
+
+  <% if signed_in? and current_user?(micropost.user) %>
+    <=> <%= link_to 'delete', micropost, method: :delete, confirm: 'DELETE MICROPOST?' %>
+  <% end %>
+</li>
