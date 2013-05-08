@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
 
   has_secure_password
+  has_many :microposts, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
   VALID_EMAIL_FORMAT = /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+\z/i
